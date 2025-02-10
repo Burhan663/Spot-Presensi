@@ -1,16 +1,19 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:spot_presensi/app/presentation/home/home_screen.dart';
 import 'package:spot_presensi/app/presentation/login/login_notifier.dart';
-import 'package:spot_presensi/app/presentation/map/map_notifier.dart';
 import 'package:spot_presensi/core/helper/global_helper.dart';
-import 'package:spot_presensi/core/widget/app_witget.dart';
+import 'package:spot_presensi/core/widget/app_widget.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/framework.dart';
 
 class LoginScreen extends AppWidget<LoginNotifier, void, void> {
-@override
+  @override
   void checkVariableAfterUi(BuildContext context) {
-    if(notifier.isLoged){
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen(),));
+    if (notifier.isLoged) {
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => HomeScreen(),
+          ));
     }
   }
 
@@ -19,14 +22,14 @@ class LoginScreen extends AppWidget<LoginNotifier, void, void> {
     return SafeArea(
       child: Container(
         width: double.maxFinite,
-        padding: EdgeInsets.all(20),
+        padding: EdgeInsets.all(10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
               child: Center(
                 child: Text(
-                  'Spot Presensi',
+                  'Absensi',
                   style: GlobalHelper.getTextStyle(context,
                           appTextStyle: AppTextStyle.DISPLAY_MEDIUM)
                       ?.copyWith(fontWeight: FontWeight.bold),
@@ -45,7 +48,7 @@ class LoginScreen extends AppWidget<LoginNotifier, void, void> {
                   border: OutlineInputBorder()),
             ),
             SizedBox(
-              height: 20,
+              height: 10,
             ),
             TextField(
               controller: notifier.passwordController,
@@ -62,13 +65,13 @@ class LoginScreen extends AppWidget<LoginNotifier, void, void> {
                   )),
             ),
             SizedBox(
-              height: 40,
+              height: 20,
             ),
             Container(
                 width: double.maxFinite,
                 child: FilledButton(
                     onPressed: () => _onPressLogin(context),
-                    child: Text('Login'))),
+                    child: Text("Login")))
           ],
         ),
       ),

@@ -5,7 +5,7 @@ import 'package:spot_presensi/app/presentation/home/home_notifier.dart';
 import 'package:spot_presensi/app/presentation/map/map_screen.dart';
 import 'package:spot_presensi/core/helper/date_time_helper.dart';
 import 'package:spot_presensi/core/helper/global_helper.dart';
-import 'package:spot_presensi/core/widget/app_witget.dart';
+import 'package:spot_presensi/core/widget/app_widget.dart';
 
 class HomeScreen extends AppWidget<HomeNotifier, void, void> {
   @override
@@ -128,8 +128,8 @@ class HomeScreen extends AppWidget<HomeNotifier, void, void> {
           ),
           Row(
             children: [
-              _timeTodayLayout(context, 'Datang', '07.30.10'),
-              _timeTodayLayout(context, 'Pulang', '15.50.10')
+              // _timeTodayLayout(context, 'Datang', notifier.attendanceToday?.startTime ?? '-'),
+              // _timeTodayLayout(context, 'Pulang', notifier.attendanceToday?.endTime ?? '-')
             ],
           ),
           SizedBox(

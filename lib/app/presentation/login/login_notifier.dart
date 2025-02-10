@@ -6,9 +6,9 @@ import 'package:spot_presensi/core/helper/shared_preferences_helper.dart';
 import 'package:spot_presensi/core/provider/app_provider.dart';
 
 class LoginNotifier extends AppProvider {
-final AuthLoginUseCase _authLoginUseCase;
+  final AuthLoginUseCase _authLoginUseCase;
 
-  LoginNotifier(this._authLoginUseCase){
+  LoginNotifier(this._authLoginUseCase) {
     init();
   }
 
@@ -22,17 +22,17 @@ final AuthLoginUseCase _authLoginUseCase;
   TextEditingController get emailController => _emailController;
   TextEditingController get passwordController => _passwordController;
 
-  set isShowPassword(bool param){
+  set isShowPassword(bool param) {
     _isShowPassword = param;
     notifyListeners();
   }
-
 
   @override
   void init() {
     _checkAuth();
   }
-  _checkAuth() async{
+
+  _checkAuth() async {
     showLoading();
     final String? auth = await SharedPreferencesHelper.getString(PREF_AUTH);
     if (auth?.isNotEmpty ?? false) _isLoged = true;
@@ -42,14 +42,13 @@ final AuthLoginUseCase _authLoginUseCase;
   login() async {
     showLoading();
     final param = AuthEntity(
-      email: _emailController.text, password: _passwordController.text);
-      final response = await _authLoginUseCase(param: param);
-      if(response.success){
-
-      }else{
-        snackbarMessage = response.message;
-      }
-      _checkAuth();
-      hideLoading();
+        email: _emailController.text, password: _passwordController.text);
+    final response = await _authLoginUseCase(param: param);
+    if (response.success) {
+    } else {
+      snackbarMessage = response.message;
+    }
+    _checkAuth();
+    hideLoading();
   }
 }

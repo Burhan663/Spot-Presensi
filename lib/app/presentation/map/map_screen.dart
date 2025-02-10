@@ -3,7 +3,7 @@ import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
 import 'package:retrofit/http.dart';
 import 'package:spot_presensi/app/presentation/map/map_notifier.dart';
 import 'package:spot_presensi/core/helper/global_helper.dart';
-import 'package:spot_presensi/core/widget/app_witget.dart';
+import 'package:spot_presensi/core/widget/app_widget.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:spot_presensi/core/widget/loading_app_widget.dart';
 
